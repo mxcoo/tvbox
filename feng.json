@@ -1,0 +1,45 @@
+{
+  "spider": "",
+  "wallpaper": "",
+  "sites": [
+    {
+      "key": "feng_xml",
+      "name": "枫·站点",
+      "type": 1,
+      "api": "http://YOUR_API_HOST/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": ""
+    },
+    {
+      "key": "feng_json",
+      "name": "枫·JSON",
+      "type": 0,
+      "api": "http://YOUR_API_HOST/api.php/provide/vod/at/json",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 0
+    }
+  ],
+  "lives": [
+    {
+      "name": "直播",
+      "type": 0,
+      "url": "./live.m3u",
+      "playerType": 1,
+      "ua": "okhttp/3.15"
+    }
+  ],
+  "parses": [
+    {
+      "name": "Web解析",
+      "type": 1,
+      "url": "https://YOUR_PARSE_HOST/?url=",
+      "ext": {
+        "flag": ["qq", "iqiyi", "youku", "mgtv", "bilibili"]
+      }
+    }
+  ],
+  "flags": ["youku", "qq", "iqiyi", "letv", "sohu", "pptv", "mgtv", "wasu", "bilibili"]
+}
