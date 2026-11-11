@@ -1,12 +1,12 @@
 # tvbox
 
-TVBox 配置仓库，只放两个文件。
+TVBox 多仓索引仓库，只放两个文件。
 
 ## 文件
 
 | 文件 | 说明 |
 | --- | --- |
-| `feng.json` | TVBox 单仓配置：`sites` 站点、`lives` 直播、`parses` 解析、`flags` 播放器标识 |
+| `feng.json` | 多仓索引：`urls` 数组，每条 `{ "url": 配置地址, "name": 显示名 }` |
 | `README.md` | 本说明 |
 
 ## 订阅
@@ -23,15 +23,37 @@ https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.json
 https://gh-proxy.com/https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.json
 ```
 
-## 改配置
+## 当前线路（11 条，2026-11-11 实测可用）
 
-1. `YOUR_API_HOST` / `YOUR_PARSE_HOST` 换成自己的源地址。
-2. `spider` 留空表示不用 csp jar；用 csp 源时填 `jar地址;md5;32位md5`。
-3. `lives[].url` 指向 m3u 直播源，可以是本地相对路径，也可以是完整 URL。
-4. 改完校验：`python3 -m json.tool feng.json > /dev/null && echo ok`
+| 名称 | 类型 | 备注 |
+| --- | --- | --- |
+| 锅大侠 | JSON | 严格 JSON，sites=71 |
+| wwb521 | JSON | 严格 JSON，sites=12 |
+| PG one | JSON | 严格 JSON，sites=298 |
+| 肥猫 | JSON | 带 `//` 注释，sites=234 |
+| XYQTVBox | JSON | 带注释，sites=48 |
+| 分享者18+ | JSON | 带注释，sites=3 |
+| 二哈18+ | JSON | 带注释，sites=125 |
+| 星云线路 | JSON | 带注释，sites=1045 |
+| 扛把子线路 | JSON | BOM+`#` 注释，sites=153 |
+| Huhujun线路 | JSON | 严格 JSON，sites=87 |
+| bizhangjie | JSON | 严格 JSON，sites=113 |
 
-## 字段要点
+已剔除：`agit.ai` 全域（6 条统一回 114 字节 lander 页）、notabug 404、`tv.lan2wan.top` 反盗链页，以及 2 条重复项。
 
-- `type`：`0` JSON 接口，`1` XML 接口（苹果CMS），`3` csp/网页源（需 `spider` jar）。
-- `quickSearch`：聚合源多时只给主源开，否则一次搜索很慢。
-- `parses[].ext.flag`：解析适用的站点标识，与 `flags` / 站点 `key` 对齐。
+## 增删
+
+```bash
+# 校验仍是合法 JSON
+python3 -m json.tool feng.json > /dev/null && echo ok
+
+# 追加一条
+python3 - <<'PY'
+import json
+d = json.load(open("feng.json"))
+d["urls"].append({"url": "https://example.com/config.json", "name": "新线路"})
+json.dump(d, open("feng.json", "w"), ensure_ascii=False, indent=2)
+PY
+```
+
+注意：多仓索引本身的字段是 `urls`；被引用的每个地址内部才是 `sites` / `spider` / `lives` / `parses` 那种单仓配置。混了就会加载失败。
