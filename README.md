@@ -24,11 +24,11 @@ https://gh-proxy.com/https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.jso
 
 | 名称 | sites |
 | --- | --- |
-| 王小二放牛娃新接口 | 100 |
+| 王小二放牛娃(新) | 100 |
 | 哈基米 | 172 |
-| 动漫城接口 | 27 |
-| 俊佬接口 | 24 |
-| HG接口 | 10 |
+| 动漫城 | 27 |
+| 俊佬 | 24 |
+| HG | 10 |
 | dxawi | 48 |
 | 小盒子单仓 | 54 |
 | 真心 | 43 |
@@ -37,7 +37,7 @@ https://gh-proxy.com/https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.jso
 | 东篱线路 | 93 |
 | 嗷呜线路 | 80 |
 | L佬线路 | 45 |
-| 苹果CMS资源站 | 21 |
+| 苹果CMS | 21 |
 
 ### 中段 4 条：网页首页（保留原地址，未换页内线索）
 
