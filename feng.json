@@ -1,15 +1,31 @@
 {
   "urls": [
+    {"url": "https://9280.kstore.vip/newwex.json", "name": "王小二放牛娃新接口"},
+    {"url": "https://17264.kstore.space/%E5%93%88%E5%9F%BA%E7%B1%B3.png", "name": "哈基米"},
+    {"url": "https://www.yingm.cc/dm/dm.json", "name": "动漫城接口"},
+    {"url": "http://home.jundie.top:81/top98.json", "name": "俊佬接口"},
+    {"url": "https://api.hgyx.vip/hgyx.json", "name": "HG接口"},
+    {"url": "https://dxawi.github.io/0/0.json", "name": "dxawi"},
+    {"url": "http://xhztv.top/xhz", "name": "小盒子单仓"},
+    {"url": "https://www.252035.xyz/z/FongMi.json", "name": "真心"},
+    {"url": "https://raw.githubusercontent.com/maoystv/6/main/000.json", "name": "分享"},
+    {"url": "http://box.ufuzi.com/tv/qq/%E7%9F%AD%E5%89%A7%E9%A2%91%E9%81%93/api.json", "name": "短剧"},
+    {"url": "https://raw.githubusercontent.com/chitue/dongliTV/main/api.json", "name": "东篱线路"},
+    {"url": "https://9763.kstore.vip/aowu.json", "name": "嗷呜线路"},
+    {"url": "https://android.lushunming.qzz.io/json/index.json", "name": "L佬线路"},
+    {"url": "https://pastebin.com/raw/gtbKvnE1", "name": "苹果CMS资源站"},
+    {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json", "name": "香雅情"},
+    {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json", "name": "高天流云"},
     {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/lemonguo121/BoxRes/main/Myuse/catcr.json", "name": "锅大侠"},
     {"url": "https://raw.bgithub.xyz/wwb521/live/refs/heads/main/video.json", "name": "wwb521"},
-    {"url": "https://gh-proxy.com/raw.githubusercontent.com/gaotianliuyun/gao/master/js.json", "name": "PG one"},
     {"url": "https://raw.liucn.cc/box/m.json", "name": "肥猫"},
-    {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json", "name": "XYQTVBox"},
     {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/yyfxz/fl/main/xa2.json", "name": "分享者18+"},
     {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/2hacc/TVBox/main/h/h.json", "name": "二哈18+"},
     {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/main/TVBOX/se.json", "name": "星云线路"},
     {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/franksun1211/TVBOX/main/fuli.json", "name": "扛把子线路"},
     {"url": "https://huhujunxx.neocities.org/AV.json", "name": "Huhujun线路"},
-    {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/bizhangjie/CatVodSpider/main/json/index18.json", "name": "bizhangjie"}
+    {"url": "https://gh-proxy.com/https://raw.githubusercontent.com/bizhangjie/CatVodSpider/main/json/index18.json", "name": "bizhangjie"},
+    {"url": "http://xhztv.top/4k.json", "name": "小盒子4K(格式需修复)"},
+    {"url": "https://raw.githubusercontent.com/guot55/YGBH/main/vip2.json", "name": "宝盒VIP(格式需修复)"}
   ]
 }
