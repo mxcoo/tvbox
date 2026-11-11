@@ -11,49 +11,64 @@ TVBox 多仓索引仓库，只放两个文件。
 
 ## 订阅
 
-TVBox → 设置 → 配置地址，填 raw 地址：
+TVBox → 设置 → 配置地址：
 
 ```
 https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.json
+https://gh-proxy.com/https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.json   # 国内加速
 ```
 
-国内直连不顺时用加速前缀：
+## 线路清单（27 条，2026-11-11 全量实测）
 
-```
-https://gh-proxy.com/https://raw.githubusercontent.com/mxcoo/tvbox/main/feng.json
-```
+### 前排：新增可用 14 条
 
-## 当前线路（11 条，2026-11-11 实测可用）
+| 名称 | sites |
+| --- | --- |
+| 王小二放牛娃新接口 | 100 |
+| 哈基米 | 172 |
+| 动漫城接口 | 27 |
+| 俊佬接口 | 24 |
+| HG接口 | 10 |
+| dxawi | 48 |
+| 小盒子单仓 | 54 |
+| 真心 | 43 |
+| 分享 | 162 |
+| 短剧 | 35 |
+| 东篱线路 | 93 |
+| 嗷呜线路 | 80 |
+| L佬线路 | 45 |
+| 苹果CMS资源站 | 21 |
 
-| 名称 | 类型 | 备注 |
+### 原有 11 条（香雅情、高天流云为同源合并后的名称）
+
+锅大侠 71 · wwb521 12 · 肥猫 234 · 分享者18+ 3 · 二哈18+ 125 · 星云线路 1045 · 扛把子线路 153 · Huhujun线路 87 · bizhangjie 113，另有香雅情 48、高天流云 298。
+
+### 末尾 2 条：格式需修复
+
+| 名称 | sites | 问题 |
 | --- | --- | --- |
-| 锅大侠 | JSON | 严格 JSON，sites=71 |
-| wwb521 | JSON | 严格 JSON，sites=12 |
-| PG one | JSON | 严格 JSON，sites=298 |
-| 肥猫 | JSON | 带 `//` 注释，sites=234 |
-| XYQTVBox | JSON | 带注释，sites=48 |
-| 分享者18+ | JSON | 带注释，sites=3 |
-| 二哈18+ | JSON | 带注释，sites=125 |
-| 星云线路 | JSON | 带注释，sites=1045 |
-| 扛把子线路 | JSON | BOM+`#` 注释，sites=153 |
-| Huhujun线路 | JSON | 严格 JSON，sites=87 |
-| bizhangjie | JSON | 严格 JSON，sites=113 |
+| 小盒子4K | 53 | JSON 内混入 `//////` 注释与非标准键、字符串里有裸换行 |
+| 宝盒VIP | 144 | `{"key":爱迪V2,...}` 键值未加引号 |
 
-已剔除：`agit.ai` 全域（6 条统一回 114 字节 lander 页）、notabug 404、`tv.lan2wan.top` 反盗链页，以及 2 条重复项。
+严格解析器直接失败；剥离注释、转义裸换行、给未加引号的值补引号后可正常解析。客户端若不认，删掉这两条即可。
+
+## 未收录（8 条）
+
+| 原地址 | 实际返回 |
+| --- | --- |
+| `www.饭太硬.net/tv` | HTML 首页，页内线索 `cdn.qiaoji8.com/tvbox.json` 本机 DNS 不可达 |
+| `肥猫.net` | HTML 首页，页内线索 `9877.kstore.space/sun.json` 返回 403 |
+| `我不是.摸鱼儿.top` | HTML 首页，无 json 线索 |
+| `tvbox.王二小放牛娃.top` | GBK 文本页，列出多个接口地址，本身不是配置 |
+| `tv.菜妮丝.top` | HTML 首页，无 json 线索 |
+| `cdn.gitmirror.com/bb/xduo/...` | 域名 DNS 失效；GitHub 上 `bb/xduo` 404 |
+| `yoursmile66/TVBox/main/XC.json` | 直连与 gh-proxy 版均被链路切断 |
+| `pastebin` 之外的 `南风接口` 原址 | 返回 hex 密文串，非明文配置 |
 
 ## 增删
 
 ```bash
-# 校验仍是合法 JSON
 python3 -m json.tool feng.json > /dev/null && echo ok
-
-# 追加一条
-python3 - <<'PY'
-import json
-d = json.load(open("feng.json"))
-d["urls"].append({"url": "https://example.com/config.json", "name": "新线路"})
-json.dump(d, open("feng.json", "w"), ensure_ascii=False, indent=2)
-PY
 ```
 
-注意：多仓索引本身的字段是 `urls`；被引用的每个地址内部才是 `sites` / `spider` / `lives` / `parses` 那种单仓配置。混了就会加载失败。
+多仓索引自身字段是 `urls`；每条被引用地址内部才是 `sites` / `spider` / `lives` / `parses` 那种单仓配置，混了就会加载失败。
